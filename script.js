@@ -63,7 +63,7 @@ function initScrollAnimations() {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        el.style.transitionDelay = `${index * 0.1}s`;
+        el.style.transitionDelay = `${Math.min(index * 0.1, 2)}s`;
         observer.observe(el);
     });
 }

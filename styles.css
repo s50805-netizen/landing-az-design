@@ -366,8 +366,8 @@ html {
 }
 
 .btn:hover::before {
-    width: 300px;
-    height: 300px;
+    width: 300%;
+    height: 300%;
 }
 
 .btn:active {
@@ -1429,7 +1429,7 @@ html {
 .btn:focus,
 .form-group input:focus,
 .form-group select:focus {
-    outline: 3px solid var(--primary-color);
+    outline: 3px solid #1F2937;
     outline-offset: 2px;
 }
 
