@@ -1,3 +1,17 @@
+// Configuration
+const WHATSAPP_NUMBER = '60123456789';
+
+// Update all WhatsApp links with configured number
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+    whatsappLinks.forEach(link => {
+        const currentHref = link.getAttribute('href');
+        if (currentHref.includes('wa.me/')) {
+            link.setAttribute('href', `https://wa.me/${WHATSAPP_NUMBER}`);
+        }
+    });
+});
+
 // Hero Slider Functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.hero-slide');
@@ -40,7 +54,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     const encodedMessage = encodeURIComponent(message);
     
     // WhatsApp API URL
-    const whatsappUrl = `https://wa.me/60123456789?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     
     // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank');
@@ -55,7 +69,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 80;
+            const headerOffset = 60; // Match sticky header height
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
