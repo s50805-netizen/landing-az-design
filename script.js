@@ -246,3 +246,30 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+// Scroll to Top Button
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+if (scrollToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Add interactive hover effects to cards
+document.querySelectorAll('.challenge-card, .point-card, .case-study-card, .module-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+});
